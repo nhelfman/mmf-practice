@@ -24,6 +24,13 @@
 <h3>
 Question <span id="qnum">1</span>
 </h3>
+
+<div class="progress">
+  <div id="bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+    
+  </div>
+</div>
+
 <h1>
 <span id="num1">_</span>+<span id="num2">_</span>=<span id="ans">__</span>
 </h1>
@@ -51,7 +58,6 @@ Question <span id="qnum">1</span>
 
 <button type="button" value="go" id="btnGo" disabled class="btn btn-success btn-lg top-buffer">&nbsp;&nbsp;&nbsp;GO&nbsp;&nbsp;&nbsp;</button>
 </div>
-<div id="result" class="alert"></div>
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -64,9 +70,16 @@ Question <span id="qnum">1</span>
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>
+var questionNum = 1;
+var correctAnswers = 0;
+var mistakes = "";
+
 $(function() {
     FastClick.attach(document.body);
 });
+
+$(function() {
+
 
 $("#ans").text("__");
 
@@ -74,7 +87,15 @@ $("#ans").text("__");
 $("#num1").text(Math.floor(Math.random() * 10));
 $("#num2").text(Math.floor(Math.random() * 10));
 
-var questionNum = 1;
+$("#bar").animate({ width: "100%" }, {duration: 60 * 1000, easing: "linear", 
+		done: function() {
+			var msg = "Time's out!\n Correct answers: " + correctAnswers + " out of " + questionNum + ". " + mistakes; 
+			alert(msg);
+		}
+	});
+
+});
+
 
 $("#keys button").click(function() {
 console.log("button click val=" + $(this).val());
@@ -127,15 +148,11 @@ if (!isNaN(val)) {
 			
 			$("#result").removeClass("alert-success alert-danger");	
 			if (sum == ans) {
-				$("#result").addClass("alert-success");
- 				$("#result").text("Yes!");	
+				correctAnswers++;
 			} else {
-				$("#result").addClass("alert-danger");
-				$("#result").text("No");
+				mistakes += "[ " + num1 + " + " + num2 + " = " + sum + "] ";
 			}
 
-			$("#result").fadeIn(10);
-			$("#result").fadeOut(800);
 
 			$("#qnum").text(questionNum);	
 			$("#ans").text("__");
