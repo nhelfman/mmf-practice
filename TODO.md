@@ -4,7 +4,7 @@ TODO
 2. ~~Timer countdown~~
 3. Sounds
 4. Read/Set/Go to start the timer
-5. Remove result flash
+5. ~~Remove result flash~~
 6. Show results at the end
 7. Try again button at the end
 8. Max problem limit
