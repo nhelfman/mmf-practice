@@ -11,5 +11,7 @@ TODO
 9. Goal setting
 10. Level selection (a-z)
 11. More operations (-/x)
-12. Save last result?
-13. Move the go button farther 
+12. Save results on server
+13. Move the go/del button far from numbers
+14. Support for keyboard
+15. Wrap as a mobile app with PhoneGap
