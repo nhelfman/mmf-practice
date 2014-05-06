@@ -14,4 +14,5 @@ TODO
 12. Save results on server
 13. Move the go/del button far from numbers
 14. Support for keyboard
-15. Wrap as a mobile app with PhoneGap
+15. Keep answer 2 digit width always
+16. Wrap as a mobile app with PhoneGap
