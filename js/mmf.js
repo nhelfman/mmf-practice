@@ -135,6 +135,7 @@ $("body").keypress(function(event) {
 $("#keys button").click(function() {
 console.log("button click val=" + $(this).val());
 
+
 var val = $(this).val();
 var ans = $("#ans").text();
 
