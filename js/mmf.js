@@ -1,8 +1,10 @@
 var questionNum = 1;
-var maxQuestions = 10;
+var maxQuestions = 35;
 var correctAnswers = 0;
 var mistakes = "";
-var timeSeconds = 10;
+var timeSeconds = 40;
+
+var startTime = 0;
 
 function showFinishedModal(title) {
 	$("#finishedMsg").text(title);
@@ -26,18 +28,29 @@ $("#btnTryAgain").click(function() {
 
 $("#ans").text("__");
 
-
 $("#num1").text(Math.floor(Math.random() * 10));
 $("#num2").text(Math.floor(Math.random() * 10));
 
-$("#time-bar").animate({ width: "100%" }, {duration: timeSeconds * 1000, easing: "linear", 
-		done: function() {
-			showFinishedModal("Sorry, time is up!");
-		}
-	});
+startTime = Date.now();
+
+var intervalId = window.setInterval(function() {
+	var elapsed = (Date.now() - startTime);
+	console.log("time elapsed " + elapsed);
+
+	var elapsedPercent = elapsed * 100 / (timeSeconds * 1000);
+
+	$("#time-bar").css("width", elapsedPercent + "%");
+
+	if (elapsed > timeSeconds * 1000) {
+		console.log("Time is over");
+		clearInterval(intervalId);
+		showFinishedModal("Sorry, time is up!");
+	}
+
+}, 500);
+
 
 });
-
 
 $("#keys button").click(function() {
 console.log("button click val=" + $(this).val());
