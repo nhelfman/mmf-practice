@@ -14,7 +14,7 @@ TODO
 - Save results on server
 - Move the go/del button far from numbers
 - Support for keyboard
-- Fix timer for animated progress bar
+- ~~Fix timer for animated progress bar~~
 - Keep answer 2 digit width always
 - Wrap as a mobile app with PhoneGap
 
