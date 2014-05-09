@@ -10,7 +10,7 @@ function showFinishedModal(title) {
 	$("#finishedMsg").text(title);
 	$("#correctAnswers").text(correctAnswers);
 	$("#totalQuestions").text(questionNum - 1);
-	$("#incorrectAnswers").html(mistakes);
+	$("#incorrectAnswers").html(mistakes == "" ? "None" : mistakes);
 	$("#modalFinished").modal("show");	
 }
 
