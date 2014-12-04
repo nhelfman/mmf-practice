@@ -1,5 +1,5 @@
 var questionNum = 1;
-var maxQuestions = 35;
+var maxQuestions = 30;
 var correctAnswers = 0;
 var mistakes = "";
 var timeSeconds = 60;
