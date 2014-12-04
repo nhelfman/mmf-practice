@@ -17,4 +17,5 @@ TODO
 - ~~Fix timer for animated progress bar~~
 - Keep answer 2 digit width always
 - Wrap as a mobile app with PhoneGap
+- Different background
 
